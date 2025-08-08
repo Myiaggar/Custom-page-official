@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Agent HxSain HQ</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: url('https://i.postimg.cc/K8TmLtJp/1754663404650.png') no-repeat center center fixed;
+      background-size: cover;
+      color: white;
+    }
+
+    .container {
+      text-align: center;
+      padding-top: 30px;
+      background-color: rgba(0, 0, 0, 0.6);
+      min-height: 100vh;
+    }
+
+    h1 {
+      font-size: 2em;
+      margin-bottom: 20px;
+      text-shadow: 0 0 10px #ffffff;
+    }
+
+    /* Styles for the pill-shaped links */
+    .pill-link-box {
+      background: rgba(0, 0, 0, 0.5);
+      backdrop-filter: blur(10px);
+      border: 2px solid #66ffcc;
+      border-radius: 50px;
+      box-shadow: 0 0 20px rgba(102, 255, 204, 0.3);
+      transition: all 0.3s ease-in-out;
+      display: inline-block;
+      padding: 10px 25px;
+      margin: 10px;
+    }
+
+    .pill-link-box:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 40px rgba(102, 255, 204, 0.5);
+    }
+
+    .search-box {
+      margin-bottom: 30px;
+    }
+
+    .search-box form {
+      display: flex;
+      justify-content: center;
+    }
+    
+    /* Styles for the pill-shaped search bar */
+    input[type="text"] {
+      width: 60%;
+      padding: 12px;
+      font-size: 1em;
+      border-radius: 50px;
+      border: 2px solid #66ffcc;
+      outline: none;
+      text-align: center;
+      box-shadow: 0 0 10px white;
+      background-color: rgba(255, 255, 255, 0.1);
+      color: white;
+      text-shadow: 0 0 5px white;
+    }
+
+    input::placeholder {
+      color: #ccc;
+      text-shadow: 0 0 5px white;
+    }
+    
+    /* Fix: Ensure text glow remains on focus */
+    input[type="text"]:focus {
+      text-shadow: 0 0 5px white;
+    }
+
+    .quick-links {
+      margin: 30px 0;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .quick-links a {
+      text-decoration: none;
+      color: white;
+      text-shadow: 0 0 10px white;
+    }
+
+    /* Styles for the doom-scrolling news widget container */
+    .news-widget-container {
+      width: 90%;
+      margin-top: 40px;
+      border-radius: 12px;
+      background: rgba(0, 0, 0, 0.5);
+      backdrop-filter: blur(10px);
+      border: 2px solid #66ffcc;
+      box-shadow: 0 0 20px rgba(102, 255, 204, 0.3);
+      padding: 20px;
+      box-sizing: border-box;
+      margin-left: auto;
+      margin-right: auto;
+      /* Removed fixed height and hidden overflow to enable doom-scrolling */
+      overflow-y: auto; 
+    }
+
+    /* Styles to make the iframe responsive within the container */
+    .news-widget-container iframe {
+      width: 100%;
+      /* Removed fixed height and let the iframe's content determine its height */
+      height: 1600px;
+      border-radius: 8px;
+    }
+
+    h2 {
+      text-shadow: 0 0 10px #ffffff;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Welcome, Agent HxSain 😎</h1>
+
+    <div class="search-box">
+      <form onsubmit="searchOrNavigate(event)">
+        <input type="text" name="q" placeholder="Search Google or type a URL...">
+      </form>
+    </div>
+
+    <div class="quick-links">
+      <div class="pill-link-box"><a href="https://hianime.to" target="_blank">HiAnime</a></div>
+      <div class="pill-link-box"><a href="https://m.youtube.com" target="_blank">YouTube</a></div>
+      <div class="pill-link-box"><a href="https://m.facebook.com" target="_blank">Facebook</a></div>
+      <div class="pill-link-box"><a href="https://instagram.com" target="_blank">Instagram</a></div>
+      <div class="pill-link-box"><a href="https://www.egytopup.com" target="_blank">EgyTopUp</a></div>
+    </div>
+
+    <h2>📰 What's Goin On The Void</h2>
+    
+    <div class="news-widget-container">
+      <iframe src="https://rss.app/embed/v1/wall/tqPKQClg5V1j7Gak" frameborder="0"></iframe>
+    </div>
+    
+  </div>
+
+  <script>
+    function searchOrNavigate(event) {
+      event.preventDefault();
+      
+      const form = event.target;
+      const input = form.querySelector('input[type="text"]');
+      let query = input.value.trim();
+
+      const isURL = query.includes('.') && !query.includes(' ');
+
+      if (isURL) {
+        if (!query.startsWith('http://') && !query.startsWith('https://')) {
+          query = 'http://' + query;
+        }
+        window.open(query, '_blank');
+      } else {
+        window.open('https://www.google.com/search?q=' + encodeURIComponent(query), '_blank');
+      }
+    }
+  </script>
+</body>
+</html>
